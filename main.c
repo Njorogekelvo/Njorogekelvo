@@ -1,32 +1,88 @@
-/*
-project : A simple quadratic solution
-Author   :@kelvin Gichuhi
-compiler :C89
-Lincense : MIT
-*/
 
 #include <stdio.h>
-#include <math.h>
-
-int main()
+#include <stdlib.h>
+// take input from user
+int main(void)
 {
-    float a, b, c;
-    float root1, root2;
-    float root_part,denominator;
+    //get input from user(name, employee number, tax pin, hours worked)
 
+    char name(20);
+    char employee_number (10);
+    char tax_pin(10);
+     int hours_worked;
+     float hourly_rate;
+     float income;
+     float tax;
+     float overtime;
+     float total_income;
+     float net_income;
+     hourly_rate = 1000.00;
+     tax = 0.30;
+     overtime = 1.5;
+     printf("Enter your name:");
+     scanf("%s",name);
+     printf("Enter your employee number:");
+     scanf("%d",&empoloyee_number);
+     printf("Enter your tax pin:");
+     scanf("%s",tax_pin);
+     printf("Enter your hours worked":);
+     scanf("%d",&hours_worked);
 
-    printf("Enter values of a,b and c\n");
-    scanf("%f%f%f",&a, &b, &c);
+      // create if statement to check if hours worked is greater than 40
+     if  (hours_worked > 40)
+     {
+         // calculate income including overtime
+         income = (hours_worked - 40)* hourly_rate * overtime;
+         // calculate overtime
+         overtime = ( hours_worked - 40) * hourly_rate;
+         // calculate tax
+         tax = income * tax;
+         // calculate total income
+         total_income = income - tax;
+         // calculate net income
+         net_income = total_income - (total_income * 0.10);
 
-    root_part = sqrt(b * b - 4 * a * c);
-    denominator = 2 * a;
+         //print out results
+           printf("\n\n");
+           printf("name: %s\n",name);
+           printf("Employee number: %d\n", employee_number);
+           printf("tax pin: %s\n", tax_pin);
+           printf("Hours worked:%d\n", hours_worked);
+           printf("Hourly rate:%.\n", hourly_rate);
+           printf("normal income: %.2f\n", income);
+           printf("Overtime: %.2f\n", overtime);
+           printf("total income: %.2f\n", total_income);
+           printf("net income: %.2f\n", net_income);
+           printf("Tax paid: %.2f\n",tax);
 
-    root1     = (- b + root_part) /denominator;
-    root2     = (- b - root_part) /denominator;
-    printf("Root 1 = %f\nRoot 2 =%f", root1,root2);
+}
+    else
+  {
+      // calculate income
+      income = hours_worked *hourly_rate;
+      // calculate overtime
+      overtime = 0;
+      // calculate tax
+      tax = income * tax;
+      // calculate total income
+       total_ income = income - tax;
+       // calculate net income
+       net_income = total_income - (total_income * 0.10);
 
+      // print out results
+      printf ("\n\n");
+      printf("Name:%s\n",name);
+      printf("Employee number:%d\n",employee_number);
+      printf("Tax pin:%s\n",tax_pin);
+      printf("Hours worked:%d\n",hours_worked);
+      printf("Hourly rate:%.2f\n",hourly_rate);
+      printf("income:%.2f\n",income);
+      printf("Tax:%.2f\n",tax);
+      printf("Overtime:%.2f\n",overtime);
+      printf("Total income:%.2f\n",total_ income);
+      printf("Net income:%.2f\n",net_income);
+  }
     return 0;
 }
-
 
 
